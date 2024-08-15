@@ -1,13 +1,59 @@
 * {
     /* border-top: 10px solid #1098ad; */
+    margin: 0;
+    padding: 0;
 }
 
+/* PAGE SECTIONS */
 body {
     color: #444;
     font-family: sans-serif;
     border-top: 10px solid #1098ad;
+    position: relative;
 }
 
+.container {
+    width: 800px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin: 0 auto;
+}
+
+.main-header {
+    background-color: #f7f7f7f7;
+    /* padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px; */
+    padding: 20px 40px;
+    margin-bottom: 60px;
+}
+
+nav {
+    font-size: 18px;
+    text-align: center;
+}
+
+article {
+    margin-bottom: 60px;
+}
+
+.post-header {
+    margin-bottom: 40px;
+}
+
+aside {
+    background-color: #f7f7f7f7;
+    /* border: dotted, dashed, solid */
+    /* border: 5px solid #1098ad; */
+    border-top: 5px solid #1098ad;
+    border-bottom: 5px solid #1098ad;
+    /* padding-top: 50px;
+    padding-bottom: 50px; */
+    padding: 50px 50px;
+    width: 500px;
+}
+
+/* SMALLER ELEMENT */
 h1,
 h2,
 h3 {
@@ -22,10 +68,13 @@ h1 {
 
 h2 {
     font-size: 40px;
+    margin-bottom: 30px;
 }
 
 h3 {
     font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 40px;
 }
 
 h4 {
@@ -37,10 +86,22 @@ h4 {
 p {
     font-size: 22px;
     line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+ul,
+ol {
+    margin-left: 50px;
+    margin-bottom: 20px;
 }
 
 li {
     font-size: 20px;
+    margin-bottom: 10px;
+}
+
+li:last-child {
+    margin-bottom: 0;
 }
 
 /* Combining selectors */
@@ -72,22 +133,6 @@ li {
 } */
 .related-list {
     list-style: none;
-}
-
-.main-header {
-    background-color: #f7f7f7f7;
-}
-
-aside {
-    background-color: #f7f7f7f7;
-    /* border: dotted, dashed, solid */
-    /* border: 5px solid #1098ad; */
-    border-top: 5px solid #1098ad;
-    border-bottom: 5px solid #1098ad;
-}
-
-body {
-    /* background-color: orange; */
 }
 
 /* .first-li{
@@ -133,6 +178,58 @@ a:active {
     font-style: italic;
 }
 
+.post-img {
+    width: 100%;
+    height: auto;
+}
+
+nav a:link {
+    margin-right: 30px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+nav a:link:last-child {
+    margin-right: 0;
+}
+
+button {
+    font-size: 22px;
+    padding: 20px;
+    cursor: pointer;
+
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+/* pseudo-elemnts and pseudo-classes */
+h1::first-letter {
+    font-style: normal;
+    margin-right: 5px;
+}
+
+h3+p::first-line {
+    /* color: red; */
+}
+
+h2 {
+    position: relative;
+}
+
+h2::before {
+    content: "TOP";
+    background-color: #ffe78e;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    top: -10px;
+    right: -25px;
+}
+
 /* LVHA */
 
 /*  Resolving conflict*/
@@ -155,6 +252,3 @@ footer p {
 /* nav a:link{
     font-size: 18px;
 } */
-nav {
-    font-size: 18px;
-}
