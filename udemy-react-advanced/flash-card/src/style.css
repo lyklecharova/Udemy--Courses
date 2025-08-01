@@ -27,8 +27,8 @@ body {
 }
 
 div.selected {
-    border: 1px solid #e03131;
-    background-color: #e03131;
+    border: 1px solid #71e03100;
+    background-color: #04447c;
     color: #fff;
     font-weight: bold;
 }
