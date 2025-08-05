@@ -1,0 +1,61 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+MAIN COLOR:  #087f5b
+GREY COLOR: #343a40
+*/
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #343a40;
+    line-height: 1;
+}
+
+.accordion {
+    width: 700px;
+    margin: 100px auto;
+}
+
+.item {}
+
+.number,
+.text {
+    font-size: 24px;
+    font-weight: 500;
+    color: #087f5b;
+}
+
+
+.icon {
+    width: 24px;
+    height: 24px;
+    stroke: #087f5b;
+}
+
+.hidden-box {}
+
+.hidden-box p {
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.hidden-box ul {
+    color: #868e96;
+    margin-left: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
