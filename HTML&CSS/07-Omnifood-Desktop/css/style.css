@@ -51,18 +51,12 @@ body {
     color: #555;
 }
 
-.test {
-    max-width: 50rem;
-    /*  
-        1 rem = 16px 
-        50rem → 50 × 16 = 800px
-       ! rem = px ÷ root-font-size
-       ! px = rem × root-font-size
-     
-   */
-    background-color: red;
-    color: #fff;
-    font-size: 4rem;
-    padding: 2rem;
-
+.hero{
+    max-width: 130rem;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+}
+.hero-img{
+    width: 100%;
 }
