@@ -23,8 +23,10 @@ Paragraph default: 1.6
 -- 02 COLORS
 
 - Primary:  #e67e22
+- Tints:
+#fdf2e9
+#fae5d3
 
-- Tints: #fdf2e9
 - Shades: #cf711f
 - Accents: 
 - Grays
@@ -76,7 +78,8 @@ body {
 
 .grid {
     display: grid;
-    gap: 9.6rem;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
 }
 
 .grid--2-cols {
@@ -91,6 +94,10 @@ body {
 .grid--4-cols {
     grid-template-columns: repeat(4, 1fr);
 
+}
+
+.grid--center-v {
+    align-items: center;
 }
 
 .heading-primary,
