@@ -472,3 +472,9 @@
     /* temp */
     height: 50rem;
 }
+
+.cta-img-box {
+    background-image: url('../img/eating.jpg');
+    background-size: cover;
+    background-position: center;
+}
