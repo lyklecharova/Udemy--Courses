@@ -459,7 +459,7 @@
 /* CTA (call-to-action) SECTION */
 /* ********************************************** */
 .section-cta {
-    padding: 9.6rem 0;
+    padding: 4.8rem 0 12.8rem;
 }
 
 .cta {
@@ -533,12 +533,16 @@
     box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
 
-
 /* ********************************************** */
 /* FOOTER SECTION */
 /* ********************************************** */
 .footer {
-    padding: 9.6rem 0;
+    padding: 12.8rem 0;
+    border-top: 1px solid #eee;
+}
+
+.grid--footer {
+    grid-template-columns: repeat(2, 1.5fr) repeat(3, 1fr);
 }
 
 .logo-col {
