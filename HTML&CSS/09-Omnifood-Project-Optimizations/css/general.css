@@ -69,7 +69,9 @@ html {
     /* Percentage of user's browser font-size setting */
     font-size: 62.5%;
     overflow-x: hidden;
-    scroll-behavior: smooth;
+    
+    /* Does NOT work on Safari and also NOT on Microsoft Edge
+    scroll-behavior: smooth; */
 }
 
 body {
