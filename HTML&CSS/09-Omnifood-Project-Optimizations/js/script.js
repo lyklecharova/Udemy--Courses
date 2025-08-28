@@ -4,7 +4,35 @@ const btnNavElement = document.querySelector(".btn-mobile-nav");
 const headerElement = document.querySelector(".header");
 btnNavElement.addEventListener("click", function () {
   headerElement.classList.toggle("nav-open");
-})
+});
+
+// Smooth scrolling animation
+const allLinks = document.querySelectorAll('a:link');
+allLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const href = link.getAttribute('href');
+
+    // Scroll back to top
+    if (href === "#") window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    // Scroll to other links
+    if (href !== "#" && href.startsWith("#")) {
+      const sectionElement = document.querySelectorAll(href);
+      sectionElement.forEach(el => el.scrollIntoView({ behavior: "smooth" }));
+    }
+
+    // Close mobile nav
+    if (link.classList.contains('main-nav-link'))
+      headerElement.classList.toggle("nav-open");
+  });
+
+});
+
+
 
 // Fixing flexbox gap property missing in some Safari versions
 function checkFlexGap() {
