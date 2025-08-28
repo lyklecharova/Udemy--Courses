@@ -230,58 +230,77 @@
         padding: 2.4rem 1.6rem;
     }
 
-    .section-hero {
-        padding: 2.4rem 0 6.4rem 0;
-    }
-
-    .hero {
-        padding: 0 3.2rem;
-
-    }
-
-    .hero-img {
-        width: 80%;
+    .section-featured {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        padding: 1.6rem;
+        box-sizing: border-box;
     }
 
     .logos {
-        height: 1.2rem;
-    }
-
-    .step-img-box:nth-child(2) {
-        grid-row: 1;
-
-    }
-
-    .step-img-box:nth-child(6) {
-        grid-row: 5;
-    }
-
-    .step-img-box {
-        transform: translateY(2.4rem);
-    }
-
-    .testimonials {
-        grid-template-columns: 1fr;
-    }
-
-    .gallery {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.2rem;
-    }
-
-    .cta {
-        grid-template-columns: 1fr;
-    }
-
-    .cta-text-img {
-        padding: 3.2rem;
-    }
-
-    .cta-img-box {
-        height: 32rem;
-        grid-row: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.6rem 0;
     }
 }
+
+.section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+}
+
+.hero {
+    padding: 0 3.2rem;
+
+}
+
+.hero-img {
+    width: 80%;
+}
+
+.logos {
+    height: 1.2rem;
+}
+
+.step-img-box:nth-child(2) {
+    grid-row: 1;
+
+}
+
+.step-img-box:nth-child(6) {
+    grid-row: 5;
+}
+
+.step-img-box {
+    transform: translateY(2.4rem);
+}
+
+.testimonials {
+    grid-template-columns: 1fr;
+}
+
+.gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+}
+
+.cta {
+    grid-template-columns: 1fr;
+}
+
+.cta-text-img {
+    padding: 3.2rem;
+}
+
+.cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+}
+
 
 
 /* Fixing Safari flexbox gap  */
