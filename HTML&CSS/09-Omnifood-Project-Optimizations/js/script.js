@@ -32,6 +32,30 @@ allLinks.forEach(function (link) {
 
 });
 
+// Sticky nav
+const sectionHeroElement = document.querySelector(".section-hero");
+// Create a new IntersectionObserver
+// It monitors whether a specific element enters or leaves the viewport
+const obs = new IntersectionObserver(function (entries) {
+  const ent = entries[0];
+  if (!ent.isIntersecting) {
+    document.querySelector(".header").classList.add("sticky");
+  }
+
+},
+  {
+    // In the viewport
+    // root: null means we are observing the viewport itself
+    root: null,
+
+    // threshold: 0 means the callback triggers as soon as even one pixel of the element
+    // appears or disappears in the viewport
+    threshold: 0,
+  });
+
+// Tell the observer to watch the hero section
+obs.observe(sectionHeroElement);
+
 
 
 // Fixing flexbox gap property missing in some Safari versions
