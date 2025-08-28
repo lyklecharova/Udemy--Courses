@@ -39,9 +39,10 @@ const sectionHeroElement = document.querySelector(".section-hero");
 const obs = new IntersectionObserver(function (entries) {
   const ent = entries[0];
   if (!ent.isIntersecting) {
-    document.querySelector(".header").classList.add("sticky");
+    document.body.classList.add("sticky");
+  } else {
+    document.body.classList.remove("sticky");
   }
-
 },
   {
     // In the viewport
@@ -51,6 +52,7 @@ const obs = new IntersectionObserver(function (entries) {
     // threshold: 0 means the callback triggers as soon as even one pixel of the element
     // appears or disappears in the viewport
     threshold: 0,
+    rootMargin: '-80px',
   });
 
 // Tell the observer to watch the hero section
