@@ -8,7 +8,7 @@ Part of the **"HTML & CSS" Udemy course** by Jonas Schmedtmann.
 ## 🌐 Live Demo
 
 [View Live Site on Netlify](https://omnifood-project-lk.netlify.app/)  
-_(Replace with your own link if needed)_
+
 
 ---
 
