@@ -1,6 +1,7 @@
-import { Button } from './Button';
+import Button from './Button';
 
-export function Friend({ friend, onSelection, selectedFriend }) {
+
+export default function Friend({ friend, onSelection, selectedFriend }) {
     const isSelected = selectedFriend?.id === friend.id;
     return (
         <li className={isSelected ? 'selected' : ''}>

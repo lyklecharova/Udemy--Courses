@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Button } from './Button';
+import Button from './Button';
 
-export function FormSplitBill({ selectedFriend, onSplitBill }) {
+
+export default function FormSplitBill({ selectedFriend, onSplitBill }) {
     const [bill, setBill] = useState('');
     const [paidByUser, setPaidByUser] = useState('');
     const paidByFriend = bill ? bill - paidByUser : '';

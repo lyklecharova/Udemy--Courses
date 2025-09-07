@@ -1,6 +1,7 @@
-import { Friend } from './Friend';
+import  Friend from './Friend';
 
-export function FriendsList({ friends, onSelection, selectedFriend }) {
+
+export default function FriendsList({ friends, onSelection, selectedFriend }) {
     return (
         <>
             <ul>
