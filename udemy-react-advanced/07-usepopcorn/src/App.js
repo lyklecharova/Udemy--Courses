@@ -11,18 +11,19 @@ import Loader from './components/Loader';
 
 const KEY = process.env.REACT_APP_OMDB_KEY;
 
-
 export default function App() {
+    const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const query = 'interstellar';
+    const tempQuery = 'interstellar';
 
+  
     useEffect(function () {
         async function fetchMovies() {
             setIsLoading(true);
             const res = await fetch(
-                `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+                `http://www.omdbapi.com/?apikey=${KEY}&s=${tempQuery}`
             );
             const data = await res.json();
             setMovies(data.Search);
@@ -34,7 +35,7 @@ export default function App() {
     return (
         <>
             <NavBar>
-                <Search />
+                <Search query={query} setQuery={setQuery} />
                 <NumResults movies={movies} />
             </NavBar>
             <Main>
