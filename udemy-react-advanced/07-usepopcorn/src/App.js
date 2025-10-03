@@ -8,6 +8,7 @@ import MovieList from './components/MovieList';
 import WatchedSummary from './components/WatchedSummary';
 import WatchedMoviesList from './components/WatchedMoviesList';
 import Loader from './components/Loader';
+import ErrorMessage from './components/ErrorMessage';
 
 const KEY = process.env.REACT_APP_OMDB_KEY;
 
@@ -16,22 +17,38 @@ export default function App() {
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const tempQuery = 'interstellar';
+    const [error, setError] = useState("");
 
-  
-    useEffect(function () {
-        async function fetchMovies() {
+    useEffect(() => {
+    async function fetchMovies(searchQuery) {
+        try {
+            if (!searchQuery) return;
+
             setIsLoading(true);
+            setError("");
+
             const res = await fetch(
-                `http://www.omdbapi.com/?apikey=${KEY}&s=${tempQuery}`
+                `https://www.omdbapi.com/?apikey=${KEY}&s=${searchQuery}`
             );
             const data = await res.json();
-            setMovies(data.Search);
+
+            if (data.Response === "False") {
+                setError(data.Error);
+                setMovies([]);
+            } else {
+                setMovies(data.Search);
+            }
+        } catch {
+            setError("Something went wrong fetching movies.");
+        } finally {
             setIsLoading(false);
         }
-        fetchMovies();
-    }, []);
+    }
 
+    // Initial fetch
+    if (!query) fetchMovies("interstellar");
+    else fetchMovies(query);
+}, [query]);
     return (
         <>
             <NavBar>
@@ -40,7 +57,9 @@ export default function App() {
             </NavBar>
             <Main>
                 <Box>
-                    {isLoading ? <Loader /> : <MovieList movies={movies} />}
+                    {isLoading && <Loader />}
+                    {!isLoading && error && <ErrorMessage message={error} />}
+                    {!isLoading && !error && <MovieList movies={movies} />}
                 </Box>
                 <Box>
                     <WatchedSummary watched={watched} />
