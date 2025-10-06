@@ -13,42 +13,48 @@ import ErrorMessage from './components/ErrorMessage';
 const KEY = process.env.REACT_APP_OMDB_KEY;
 
 export default function App() {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState('interception');
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState("");
-
+    const [error, setError] = useState('');
     useEffect(() => {
-    async function fetchMovies(searchQuery) {
-        try {
-            if (!searchQuery) return;
+        async function fetchMovies() {
+            try {
+                setIsLoading(true);
+                setError('');
 
-            setIsLoading(true);
-            setError("");
+                const res = await fetch(
+                    `https://www.omdbapi.com/?apikey=${KEY}&s=${query}`
+                );
 
-            const res = await fetch(
-                `https://www.omdbapi.com/?apikey=${KEY}&s=${searchQuery}`
-            );
-            const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(
+                        'Something went wrong with fetching movies'
+                    );
+                }
 
-            if (data.Response === "False") {
-                setError(data.Error);
-                setMovies([]);
-            } else {
+                const data = await res.json();
+
+                if (data.Response === 'False')
+                    throw new Error('Movie not found!');
+
                 setMovies(data.Search);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setIsLoading(false);
             }
-        } catch {
-            setError("Something went wrong fetching movies.");
-        } finally {
-            setIsLoading(false);
         }
-    }
 
-    // Initial fetch
-    if (!query) fetchMovies("interstellar");
-    else fetchMovies(query);
-}, [query]);
+        if(query.length < 3){
+            setMovies([]);
+            setError('');
+            return;
+        }
+        fetchMovies();
+    }, [query]);
+
     return (
         <>
             <NavBar>
